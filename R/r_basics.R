@@ -57,9 +57,22 @@ typeof(TRUE)
 42 == "42" # equality can cross types
 identical(42, "42") # type matters for identity
 
-
 # variables ----
+x <- "this is string" # in R, read as assigning the string to variable x
+x
+typeof(x)
+x <- 10
+x 
+x ^ 2 # always refers to the assigned value
 
+x <- 'pizza'
+pizza <- 'x' # variable names can be most anything
+pizza
+#my var <- 42 # not everything though
+my_var <- 42 # that's better
+#my_var = 42 # works, but not standard in R
+x <- my_var # helps reader follow assignment direction 
+x
 
 # data structures ----
 # vectors have a single dimension, like a column or row of data
