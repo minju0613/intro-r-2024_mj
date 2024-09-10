@@ -11,6 +11,52 @@ TRUE
 FALSE
 
 # Operators ----
+# Arithmetic
+2 + 3 # note the spacing
+2+3 # hard to read
+2 - 3
+2 * 3 # multiplication
+2 ** 3 # but be careful: this is an exponent
+2 / 3
+2 ^ 3 # that's better. squared. 
+
+# Comparison
+2 == 2 # tests for equality
+"Minju" == "minju" #case-sensitive
+"Minju" == "Minju"
+2 == 1 + 1 # OK
+2 == (1 + 1) # better
+
+2 != 1 # tests inequality
+
+2 < 3 
+2 > 3
+2 <= 3
+2 >= 3
+
+# Somewhat of a cruel joke
+TRUE == 1 # TRUE is value as 1
+FALSE == 0 # FALSE is value as 0
+isTRUE(TRUE) # function testing if the argument is literally TRUE
+isTRUE(1) # False
+? # queries built-in help
+?isTRUE
+
+2 < 3 & 2 > 3 # both have to pass to return TRUE (AND)
+2 < 3 | 2 > 3 # either one TRUE, all TRUE (OR)
+2 < 3 & (2 == 1 | 2 == 2) # grouping statements for ordering
+
+# type matters (sometimes)
+"Minju" # string or character type
+typeof("Minju")
+42 # numeric type (double precision, floating paint)
+typeof(42)
+TRUE # logical or Boolean type
+typeof(TRUE)
+
+42 == "42" # equality can cross types
+identical(42, "42") # type matters for identity
+
 
 # variables ----
 
