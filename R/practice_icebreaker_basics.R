@@ -6,17 +6,23 @@ library(readxl)
 library(dplyr)
 # Use the read_excel function to load the class survey data
 icebreaker_answers <- read_excel("data/icebreaker_answers.xlsx")
-View(icebreaker_answers)
 # Take a peek!
+icebreaker_answers
+head(icebreaker_answers)
+tail(icebreaker_answers)
 
 # Create a travel_speed column in your data frame using vector operations and 
 #   assignment
 t <- icebreaker_answers$travel_time
 d <- icebreaker_answers$travel_distance
-icebreaker_answers$travel_speed <- d/t*60
+icebreaker_answers$travel_speed <- d / t * 60 # speed in miles per hour
+# icebreaker_answers$travel_speed <- (icebreaker_answers$travel_distance/
+#   icebreaker_answers$travel_time * 60)
   
 # Look at a summary of the new variable--seem reasonable?
-summary(icebreaker_answers$travel_speed)
+summary(icebreaker_answers)
+boxplot(icebreaker_answers$travel_speed ~ icebreaker_answers$travel_mode) # basic plot
+hist(icebreaker_answers$travel_speed) # quick histogram
 
 # Choose a travel mode, and use a pipe to filter the data by your travel mode
 icebreaker_answers |>
@@ -37,8 +43,8 @@ summary(bus_answers)
 # Filter the data by some arbitrary time, distance, or speed threshold
 icebreaker_answers |>
   filter(
-    travel_time > 30,
-    travel_distance > 5
+    travel_speed > 20, # you can use either "," or "&"
+    travel_speed < 50
   )
 # Stretch yourself: Repeat the above, but this time filter the data by two 
 #   travel modes (Hint: %in%) 
