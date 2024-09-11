@@ -15,3 +15,16 @@ data_detectors <- data |>
 
 data_detectors_meta <- data_detectors |>
   left_join(detectors, by = c("detector_id" = "detectorid")) # c (target file column = join file column)
+
+data_detectors_missing <- detectors |>
+  anti_join(data_detectors, by = c("detectorid" = "detector_id")) |>
+  distinct(detectorid) # list of not joined detectors
+
+View(data_detectors_missing)
+
+# using the data_detectors_meta to join with the stations metadata
+# I want the stations metadata for the detectors in the data
+detectors_stations <- data_detectors_meta |>
+  select(detector_id, stationid) |>
+  left_join(stations, by = "stationid")
+
